@@ -7,6 +7,8 @@ import edu.eci.arep.lab5arep.Backend.model.Property;
 import edu.eci.arep.lab5arep.Backend.service.PropertyService;
 import org.springframework.http.ResponseEntity;
 
+
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "/properties")
 public class PropertyController {
