@@ -7,26 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Gestión de Propiedades</h1>
+    <h1>Bienvenido a la Gestión de Propiedades</h1>
 
     <nav>
-        <a href="buscar.html">Buscar Propiedades</a>
-        <a href="editar.html">Editar Propiedades</a>
+        <div class="nav-buttons">
+            <button onclick="location.href='agregar.html'">Agregar Propiedad</button>
+            <button onclick="location.href='editar.html'">Editar Propiedad</button>
+            <button onclick="location.href='buscar.html'">Buscar Propiedad</button>
+            </div
     </nav>
-    
-    <!-- Formulario para agregar propiedades -->
-    <form id="property-form">
-        <input type="text" id="address" placeholder="Dirección" required>
-        <input type="number" id="price" placeholder="Precio" required>
-        <input type="number" id="size" placeholder="Tamaño (m²)" required>
-        <textarea id="description" placeholder="Descripción" required></textarea>
-        <button type="submit">Agregar Propiedad</button>
-    </form>
-
-    <!-- Lista de propiedades -->
-    <h2>Lista de Propiedades</h2>
-    <ul id="property-list"></ul>
-
     <script src="script.js"></script>
 </body>
 </html>
