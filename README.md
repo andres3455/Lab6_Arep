@@ -117,19 +117,18 @@ Se implementaron los siguientes Endpoints:
 
 1) Debemos clonar el repositorio
 ```
-https://github.com/andres3455/LabArep-4.git
+https://github.com/andres3455/lab5Arep.git
 ```
 2) Una vez clonamos, accedemos al directorio
 ```
-cd LabArep-4
+cd lab5arep
 ```
 3) Construimos la imagen de docker
 ```
-docker build --tag microspringdocker .
+docker build --tag dockerlab5
 ```
--- Video de la contrucción de la imagen
-
-https://github.com/user-attachments/assets/96ac6a6b-bb51-4823-a697-e72bba3cda27
+-- Evidencia
+![Captura de pantalla 2025-03-05 195809](https://github.com/user-attachments/assets/99f64dd9-028c-4eb6-8dc7-c55347c4afcc)
 
 
 4) Creamos la imagen de un container para poder ejecutarlo
