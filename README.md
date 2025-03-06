@@ -22,7 +22,7 @@ Las operaciones basicas que ofrece la aplicación son las siguientes:
 
 * [Docker](https://www.docker.com/): Es una plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores. Permite empaquetar una aplicación y sus dependencias en un contenedor ligero y portátil, garantizando la consistencia en diferentes entornos.
 
---
+---
 
 ### Tecnologias usadas
 
