@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:8080/properties";
+const API_URL = "http://52.23.233.40:8080/properties";
+
+
 
 //  Cargar propiedades al inicio
 document.addEventListener("DOMContentLoaded", () => {
