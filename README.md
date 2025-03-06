@@ -106,10 +106,10 @@ Se implementaron los siguientes Endpoints:
 
 4. El flujo general es:
    
-   ✅​ El usuario interactúa con el frontend para agregar, ver, actualizar o eliminar propiedades.
-   ✅ ​El frontend envía solicitudes HTTP al backend usando la Fetch API.
-   ✅​ El backend procesa la solicitud y se comunica con la base de datos para almacenar o recuperar información.
-   ✅​ El backend devuelve una respuesta en JSON al frontend, que actualiza la interfaz del usuario.
+   ✅​ * El usuario interactúa con el frontend para agregar, ver, actualizar o eliminar propiedades.
+   ✅ * ​El frontend envía solicitudes HTTP al backend usando la Fetch API.
+   ✅​ * El backend procesa la solicitud y se comunica con la base de datos para almacenar o recuperar información.
+   ✅​ * El backend devuelve una respuesta en JSON al frontend, que actualiza la interfaz del usuario.
 
    
 
