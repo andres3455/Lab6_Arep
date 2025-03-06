@@ -31,6 +31,8 @@ Las operaciones basicas que ofrece la aplicación son las siguientes:
 * Base de Datos: MySQL (gestión de datos con persistencia).
 * Despliegue: AWS (2 EC2 para backend y base de datos).
 
+---
+
 ## Disposición del directorio de arcchivos
 
 ```                 
@@ -67,6 +69,8 @@ LAB5AREP/
 │── pom.xml
 
 ```
+
+---
 
 ### Arquitectura
 
