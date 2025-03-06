@@ -15,7 +15,7 @@ Las operaciones basicas que ofrece la aplicación son las siguientes:
 * Eliminar listados de propiedades.
 
 ---
-### Prerrequisitos
+### Prerrequisitos 🧰
 
 * [Maven](https://maven.apache.org/): Es una herramienta de comprensión y gestión de proyectos de software. Basado en el concepto de modelo de objetos de proyecto (POM), Maven puede gestionar la construcción, los informes y la documentación de un proyecto desde una pieza de información central.
 * [Git](https://learn.microsoft.com/es-es/devops/develop/git/what-is-git): Es un sistema de control de versiones distribuido, lo que significa que un clon local del proyecto es un repositorio de control de versiones completo. Estos repositorios locales plenamente funcionales permiten trabajar sin conexión o de forma remota con facilidad.
@@ -23,8 +23,8 @@ Las operaciones basicas que ofrece la aplicación son las siguientes:
 * [Docker](https://www.docker.com/): Es una plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores. Permite empaquetar una aplicación y sus dependencias en un contenedor ligero y portátil, garantizando la consistencia en diferentes entornos.
 
 ---
-
-### Tecnologias usadas
+ 
+### Tecnologias usadas 👨‍💻
 
 * Frontend: HTML, JavaScript (Fetch API para comunicación con el backend).
 * Backend: Spring Boot (API RESTful con JPA/Hibernate).
@@ -33,7 +33,7 @@ Las operaciones basicas que ofrece la aplicación son las siguientes:
 
 ---
 
-## Disposición del directorio de arcchivos
+## Disposición del directorio de arcchivos 🗂️
 
 ```                 
 LAB5AREP/
@@ -72,12 +72,12 @@ LAB5AREP/
 
 ---
 
-### Arquitectura
+### Arquitectura 💻
 
 El sistema de gestión de propiedades inmobiliarias sigue una arquitectura basada en tres capas: Frontend, Backend y Base de Datos.
 Estas capas interactúan para permitir a los usuarios realizar operaciones CRUD sobre los listados de propiedades
 
-1. Frontend
+1. Frontend 🟩​
 * Entre sus funciones esta:
 
    * Formularios para crear y editar propiedades.
@@ -85,7 +85,7 @@ Estas capas interactúan para permitir a los usuarios realizar operaciones CRUD 
    * Validación en el lado del cliente antes de enviar los datos.
    * Comunicación con el backend mediante AJAX/Fetch API para realizar solicitudes HTTP
 
-2. Backend:
+2. Backend: ​🟦​
 * Se encarga de procesar las solicitudes, esta compuesto por:
 
   * Controller -> Gestiona la solicitudes HTTP
@@ -100,20 +100,20 @@ Se implementaron los siguientes Endpoints:
   * PUT -> /properties/{id} (Actualiza una propiedad especifica)
   * DELETE -> /properties/{id} (Elimina una propiedad)
 
-3. Base de datos
+3. Base de datos ⬜​
 
   * Almacena los listados de las propiedades, se implemento en una instancia EC2 en AWS
 
 4. El flujo general es:
    
-   * El usuario interactúa con el frontend para agregar, ver, actualizar o eliminar propiedades.
-   * El frontend envía solicitudes HTTP al backend usando la Fetch API.
-   *El backend procesa la solicitud y se comunica con la base de datos para almacenar o recuperar información.
-   * El backend devuelve una respuesta en JSON al frontend, que actualiza la interfaz del usuario.
+   ✅​ El usuario interactúa con el frontend para agregar, ver, actualizar o eliminar propiedades.
+   ✅ ​El frontend envía solicitudes HTTP al backend usando la Fetch API.
+   ✅​ El backend procesa la solicitud y se comunica con la base de datos para almacenar o recuperar información.
+   ✅​ El backend devuelve una respuesta en JSON al frontend, que actualiza la interfaz del usuario.
 
    
 
-### Instalación y instrucciones de despliegue
+### Instalación y instrucciones de despliegue 🚀​🌐​
 
 1) Debemos clonar el repositorio
 ```
@@ -161,7 +161,7 @@ docker ps
 docker images 
 ```
 
-## Despliegue en AWS
+## Despliegue en AWS 🌐​ ☁️
 
 Creamos una instancia en AWS EC2 con un sistema operativo basado en Linux , y accedemos a la consola de la instancia, tambien crearemos una para la base de datos, asi como se muestra en la imagen
 
@@ -224,13 +224,22 @@ Una vez dentro, podemos crear la base de datos
 ![image](https://github.com/user-attachments/assets/6f0e5cb1-6007-4be7-9aa5-53333d940946)
 
 
-![Captura de pantalla 2025-03-05 080648](https://github.com/user-attachments/assets/4d925d37-c67a-4c06-85ca-27674e342478)
+
+## Videos y capturas de la implementación y como funciona la aplicación 📷​📹​
+
+
+![Captura de pantalla 2025-03-05 173911](https://github.com/user-attachments/assets/3d48d7ca-699c-4819-8d7b-07f927bd3ec4)
+
+![Captura de pantalla 2025-03-05 174542](https://github.com/user-attachments/assets/ecb83c58-9881-4aaa-9f01-61ac0a87c3ef)
+
+![Captura de pantalla 2025-03-05 192340](https://github.com/user-attachments/assets/29f74bd4-7a54-48e2-940a-e98dec44f677)
 
 
 
--- Video
+https://github.com/user-attachments/assets/f6ad07e7-9b11-409b-a1a9-bedfcb9eb7fc
 
 
+https://github.com/user-attachments/assets/c5b9f58e-b3d5-43ac-80a8-7263d81df3f9
 
 
 
