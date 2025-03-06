@@ -78,38 +78,38 @@ El sistema de gestión de propiedades inmobiliarias sigue una arquitectura basad
 Estas capas interactúan para permitir a los usuarios realizar operaciones CRUD sobre los listados de propiedades
 
 1. Frontend
-Entre sus funciones esta:
+* Entre sus funciones esta:
 
-   Formularios para crear y editar propiedades.
-   Lista de propiedades con opciones para ver, actualizar y eliminar.
-   Validación en el lado del cliente antes de enviar los datos.
-   Comunicación con el backend mediante AJAX/Fetch API para realizar solicitudes HTTP
+   * Formularios para crear y editar propiedades.
+   * Lista de propiedades con opciones para ver, actualizar y eliminar.
+   * Validación en el lado del cliente antes de enviar los datos.
+   * Comunicación con el backend mediante AJAX/Fetch API para realizar solicitudes HTTP
 
-2. Backend
-Se encarga de procesar las solicitudes, esta compuesto por:
+2. Backend:
+* Se encarga de procesar las solicitudes, esta compuesto por:
 
-  Controller -> Gestiona la solicitudes HTTP
-  Service -> Logica para la manipulación de los datos
-  Repository -> Interactua con la base de datos usando JPA/Hibernate
-  Exception -> Maneja errores de manera personalizada 
+  * Controller -> Gestiona la solicitudes HTTP
+  * Service -> Logica para la manipulación de los datos
+  * Repository -> Interactua con la base de datos usando JPA/Hibernate
+  * Exception -> Maneja errores de manera personalizada 
 
 Se implementaron los siguientes Endpoints:
-  POST -> /properties (crea una nueva propiedad)
-  GET -> /properties (Obtiene todas las propiedades)
-  GET -> /properties/{id} (Obtiene una propiedad especifica)
-  PUT -> /properties/{id} (Actualiza una propiedad especifica)
-  DELETE -> /properties/{id} (Elimina una propiedad)
+  * POST -> /properties (crea una nueva propiedad)
+  * GET -> /properties (Obtiene todas las propiedades)
+  * GET -> /properties/{id} (Obtiene una propiedad especifica)
+  * PUT -> /properties/{id} (Actualiza una propiedad especifica)
+  * DELETE -> /properties/{id} (Elimina una propiedad)
 
 3. Base de datos
 
-   Almacena los listados de las propiedades, se implemento en una instancia EC2 en AWS
+  * Almacena los listados de las propiedades, se implemento en una instancia EC2 en AWS
 
 4. El flujo general es:
    
-   El usuario interactúa con el frontend para agregar, ver, actualizar o eliminar propiedades.
-   El frontend envía solicitudes HTTP al backend usando la Fetch API.
-   El backend procesa la solicitud y se comunica con la base de datos para almacenar o recuperar información.
-   El backend devuelve una respuesta en JSON al frontend, que actualiza la interfaz del usuario.
+   * El usuario interactúa con el frontend para agregar, ver, actualizar o eliminar propiedades.
+   * El frontend envía solicitudes HTTP al backend usando la Fetch API.
+   *El backend procesa la solicitud y se comunica con la base de datos para almacenar o recuperar información.
+   * El backend devuelve una respuesta en JSON al frontend, que actualiza la interfaz del usuario.
 
    
 
