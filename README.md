@@ -33,7 +33,7 @@ Las operaciones basicas que ofrece la aplicación son las siguientes:
 
 ---
 
-## Disposición del directorio de arcchivos 🗂️
+## Disposición del directorio de archivos 🗂️
 
 ```                 
 LAB5AREP/
