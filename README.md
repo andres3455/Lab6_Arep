@@ -127,47 +127,20 @@ cd lab5arep
 ```
 docker build --tag dockerlab5
 ```
--- Evidencia
+--- Evidencia
+
 ![Captura de pantalla 2025-03-05 195809](https://github.com/user-attachments/assets/99f64dd9-028c-4eb6-8dc7-c55347c4afcc)
 
 
-4) Creamos la imagen de un container para poder ejecutarlo
 
-Recomendacion: Se sugiere crear 3 imagenes diferentes para poder acceder desde varios puertos
+4) Le asignamos un tag a la imagen
 
+Luego lo que haremos es crear una referencia del repositorio a nuestra imagen que creamos anteriomente.
+
+Antes de continuar se debe crear el repositorio en dockerhub
 ```
-docker run -d -p 34000:35000 --name firstdockercontainer microspringdocker
+docker tag dockerlab5 andres3455/dokckerandres:latest
 ```
-
-## Imagenes de referencia
-
-![Imagen1](img/1.png)
-
-En docker, se debe ver algo asi:
-
-![Imagen1](img/2.png)
-
-## Comandos que te pueden ayudar para esta parte
-
-```
-docker logs [imagen del contenedor]
-docker exec -it [imagen del contenedor] sh
-docker ps
-docker images 
-```
-
-## Antes de configurar AWS EC2
-
-Debemos crear un repositorio en dockerHub:
-
-![Imagen1](img/3.png)
-
-Luego lo que haremos es crear una referencia del repositorio a nuestra imagen que creamos anteriomente,
-
-```
-docker tag microspringdocker andres3455/dockerandres
-```
-![Imagen1](img/4.png)
 
 Nos logeamos desde la consola 
 ```
@@ -178,17 +151,24 @@ Empujamos la imagen al repositorio en DockerHub
 ```
 docker push andres3455/dockerandres:latest
 ```
-![Imagen1](img/5.png)
 
-![Imagen1](img/3.png)
+## Comandos que te pueden ayudar
+
+```
+docker logs [imagen del contenedor]
+docker exec -it [imagen del contenedor] sh
+docker ps
+docker images 
+```
 
 ## Despliegue en AWS
 
-Creamos una instancia en AWS EC2 con un sistema operativo basado en Linux , y accedemos a la consola de la instancia.
+Creamos una instancia en AWS EC2 con un sistema operativo basado en Linux , y accedemos a la consola de la instancia, tambien crearemos una para la base de datos, asi como se muestra en la imagen
 
-![Imagen1](img/6.png)
+![image](https://github.com/user-attachments/assets/dde8a413-536c-4e38-88e5-afff53cca1bb)
 
-Instalamos docker en la instancia con el siguiente comando:
+
+Instalamos docker en la instancia donde estara el backend con el siguiente comando:
 
 ```
 sudo apt install docker
@@ -201,23 +181,56 @@ sudo usermod -aG docker ubuntu
 ```
 Nos desconectamos de la maquina para guardar los cambios y volvemos a ingresar
 
-### Ultimo paso
+### Ultimo paso para el backend
 
-A partir de la imagen del repo que creamos en dockerhub , creamos una instancia a una nuevo contenedor independiente de la consola con el puerto 80, enlazada al puerto donde manejamos nuestro servidor de manera local (35000)
+A partir de la imagen del repo que creamos en dockerhub , creamos una instancia a una nuevo contenedor independiente de la consola con el puerto 8080.
 
 ```
-docker run -d -p 80:35000 --name firstdockeraws andres3455/dockerandres
+docker run -d -p 8080:8080 --name dockerlab5aws andres3455/dockerandres
 ```
-![Imagen1](img/7.png)
+
+![Captura de pantalla 2025-03-05 172749](https://github.com/user-attachments/assets/0326e678-9d5a-4ce1-b6a0-c4fff70c7a8e)
+
+Estas son las configuraciones de las reglas de entrada que se configuraron para no tener ningun error
+
+![image](https://github.com/user-attachments/assets/6dc4e2e0-ebf7-4549-95ce-1f55a6a00b69)
+
+### Configuración de la instancia EC2 con base de datos MYSQL
+
+Accedemos a la instancia y debemos instalar MSQL, con los siguientes comandos:
+
+```
+sudo dnf install -y community-mysql-server
+sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2022
+sudo dnf install -y mysql-community-server
+sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+sudo systemctl enable  mysqld
+```
+Para ver la clave temporal , se utiliza este comando
+
+```
+sudo grep 'temporary password' /var/log/mysqld.log
+
+```
+Para cambiarla.
+
+```
+sudo mysql_secure_installation
+```
+
+Una vez dentro, podemos crear la base de datos 
+
+
+![image](https://github.com/user-attachments/assets/6f0e5cb1-6007-4be7-9aa5-53333d940946)
+
+
+![Captura de pantalla 2025-03-05 080648](https://github.com/user-attachments/assets/4d925d37-c67a-4c06-85ca-27674e342478)
+
+
 
 -- Video
 
-https://github.com/user-attachments/assets/3bcb667f-f794-48a0-a6c9-f783d4b4af7f
 
-Si todo sale bien , podremos acceder a nuestro servidor sede la Ip publica de la instancia como se muestra en el siguiente video
-
-
-https://github.com/user-attachments/assets/0b8c6281-517f-472e-bf43-a625b47a4f52
 
 
 
