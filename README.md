@@ -1,7 +1,7 @@
 # Escuela Colombiana de Ingeniería
 # Arquitecturas Empresariales
 
-## Taller 6 Seguridad
+## Taller 6 Seguridad 2
 
 ## Descripción del laboratorio
 El objetivo principal es construir una aplicación web funcional que permita a los usuarios realizar operaciones CRUD sobre una base de datos de propiedades.
