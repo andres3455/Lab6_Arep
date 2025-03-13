@@ -1,4 +1,4 @@
-const API_URL = "http://52.23.233.40:8080/properties";
+const API_URL = "http://localhost:8080/properties";
 
 
 
@@ -138,6 +138,18 @@ async function deleteProperty(id, button) {
     console.error(error);
   }
 }
+
+async function checkSession() {
+  const response = await fetch("http://localhost:8080/auth/session/check", { method: "GET", credentials: "include" });
+
+  if (!response.ok) {
+      window.location.href = "login.html"; // Redirigir si no hay sesión
+  }
+}
+
+window.onload = checkSession;
+
+
 
 //  Obtener propiedades para edición
 async function fetchEditableProperties() {
