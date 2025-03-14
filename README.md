@@ -111,11 +111,11 @@ Esta arquitectura implementa una aplicación web segura y escalable en AWS, sepa
 
 1) Debemos clonar el repositorio
 ```
-https://github.com/andres3455/lab5Arep.git
+https://github.com/andres3455/Lab6_Arep.git
 ```
 2) Una vez clonamos, accedemos al directorio
 ```
-cd lab6arep
+cd Lab6_Arep
 ```
 
 
