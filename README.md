@@ -4,23 +4,13 @@
 ## Taller 6 Seguridad 2
 
 ## Descripción del laboratorio
-El objetivo principal es construir una aplicación web funcional que permita a los usuarios realizar operaciones CRUD sobre una base de datos de propiedades.
-Para esta ocasión se optó por continuar utilizando Docker para el despliegue en AWS
-
-Las operaciones básicas que ofrece la aplicación son las siguientes:
-
-* Crear nuevos listados de propiedades.
-* Lea o vea una lista de todas las propiedades y los detalles de las propiedades individuales.
-* Actualice los detalles de la propiedad existente.
-* Eliminar listados de propiedades.
+En este laboratorio vamos a garantizar unos criterios de seguridad para porteger la aplicación que elaboramos y desplegamos anteriormene
 
 ---
 ### Prerrequisitos 🧰
 
 * [Maven](https://maven.apache.org/): Es una herramienta de comprensión y gestión de proyectos de software. Basado en el concepto de modelo de objetos de proyecto (POM), Maven puede gestionar la construcción, los informes y la documentación de un proyecto desde una pieza de información central.
 * [Git](https://learn.microsoft.com/es-es/devops/develop/git/what-is-git): Es un sistema de control de versiones distribuido, lo que significa que un clon local del proyecto es un repositorio de control de versiones completo. Estos repositorios locales plenamente funcionales permiten trabajar sin conexión o de forma remota con facilidad.
-
-* [Docker](https://www.docker.com/): Es una plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores. Permite empaquetar una aplicación y sus dependencias en un contenedor ligero y portátil, garantizando la consistencia en diferentes entornos.
 
 ---
  
@@ -74,45 +64,49 @@ LAB5AREP/
 
 ### Arquitectura 💻
 
-El sistema de gestión de propiedades inmobiliarias sigue una arquitectura basada en tres capas: Frontend, Backend y Base de Datos.
-Estas capas interactúan para permitir a los usuarios realizar operaciones CRUD sobre los listados de propiedades
+Esta arquitectura implementa una aplicación web segura y escalable en AWS, separando la lógica en tres capas principales:
 
-1. Frontend 🟩​
-* Entre sus funciones está:
+* Servidor Apache (Frontend): Sirve los archivos estáticos (HTML, CSS, JS) al cliente.
 
-   * Formularios para crear y editar propiedades.
-   * Lista de propiedades con opciones para ver, actualizar y eliminar.
-   * Validación en el lado del cliente antes de enviar los datos.
-   * Comunicación con el backend mediante AJAX/Fetch API para realizar solicitudes HTTP
+* Spring Boot (Backend): Expone APIs REST para la lógica del negocio y la base de datos.
 
-2. Backend: ​🟦​
-* Se encarga de procesar las solicitudes, está compuesto por:
+* Base de Datos MySQL: Almacena la información de la aplicación.
 
-  * Controller -> Gestiona las solicitudes HTTP
-  * Service -> Lógica para la manipulación de los datos
-  * Repository -> Interactúa con la base de datos usando JPA/Hibernate
-  * Exception -> Maneja errores de manera personalizada 
+### Componentes 
+1) Cliente WEB
+   * Se comunica con el backend a traves de AJAX
+   * se sirve a traves del servidor Apache
+   * el servidor Apache se ubica en una Instancias EC2
+   * Configurado con TLS (Let's Encrypt) para conexiones HTTPS seguras.
+   * Servirá el frontend desde /var/www/html.
+2) Spring boot backend
+   * Implementado en una instancia EC2 separada.
+   * Expondrá APIs REST en el puerto 8080.
+   * Se conectará a la base de datos MySQL.
+   * Configurado con HTTPS mediante un certificado PKCS12 (.p12).
+3) Base de datos MySql
+   * Base de datos dedicada en otra instancia EC2.
+   * Solo accesible desde el backend (usando Security Groups).
 
-Se implementaron los siguientes Endpoints:
-  * POST -> /properties (crea una nueva propiedad)
-  * GET -> /properties (Obtiene todas las propiedades)
-  * GET -> /properties/{id} (Obtiene una propiedad específica)
-  * PUT -> /properties/{id} (Actualiza una propiedad específica)
-  * DELETE -> /properties/{id} (Elimina una propiedad)
-
-3. Base de datos ⬜​
-
-  * Almacena los listados de las propiedades, se implementó en una instancia EC2 en AWS
-
-4. El flujo general es:
-
-   * El usuario interactúa con el frontend para agregar, ver, actualizar o eliminar propiedades. ✅
-   * ​El frontend envía solicitudes HTTP al backend usando la Fetch API. ✅
-   * El backend procesa la solicitud y se comunica con la base de datos para almacenar o recuperar información. ✅
-   * El backend devuelve una respuesta en JSON al frontend, que actualiza la interfaz del usuario. ✅
-
-   
-
+### Estrategias de seguridad en AWS
+1)  Seguridad en la Red
+   * Apache
+     * Permite tráfico HTTP/HTTPS (80 y 443) desde cualquier IP (0.0.0.0/0).
+     * No permite conexiones directas desde el backend o la base de datos.
+    
+   * Backend
+     * Solo permite conexiones en el puerto 8080 desde el servidor Apache.
+     * Acceso restringido por Security Group (solo desde el SG del frontend).
+       
+   * Base de datos
+     * Solo permite conexiones en el puerto 3306 desde el backend.
+     * No tiene IP pública (solo accesible dentro de la VPC de AWS).
+    
+ 2) Certificados SSL/TLS
+    * Apache: Let’s Encrypt para HTTPS (certbot).
+    * Backend:  Certificado .p12 generado con keytool para tráfico seguro en 8443
+ 3) Autenticación
+    * Spring Security: Configurado con credenciales en application.properties, el cual se logea dentro de un formulario html en el front
 ### Instalación e instrucciones de despliegue 🚀​🌐​
 
 1) Debemos clonar el repositorio
