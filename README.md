@@ -118,8 +118,67 @@ https://github.com/andres3455/Lab6_Arep.git
 cd Lab6_Arep
 ```
 
+## Evidencias
+
+Configuracion del aplication properties
+
+![image](https://github.com/user-attachments/assets/4a9f2ab7-55c4-4e58-ac2d-490502e81879)
+
+Se configuro un dominio sobre las ips publicas de las intancias en una aplicacion llamada DUCKDNS
+
+![Captura de pantalla 2025-03-13 170116](https://github.com/user-attachments/assets/f0da8e6a-ab70-49b7-91d7-47ebcb18f502)
+
+se hizo una prueba en local, para garantizar que todo estuviera funcionando correctamente antes de realizar el despliegue
 
 
+https://github.com/user-attachments/assets/1f176e89-a359-4ec0-a1c9-dde3f8b61567
+
+Se configuraron 3 instancias a  las cuales se les asigno una ip elastica, para evitar cambios cuando volviamos a cargar AWS
+
+![image](https://github.com/user-attachments/assets/b9e37bdc-bdd0-4fe4-b1ce-9186f5ef2f16)
+
+Se cargan los archivos dentro del servidor de apache
+
+![Captura de pantalla 2025-03-13 164409](https://github.com/user-attachments/assets/1a7c7eb6-6370-4a28-99c9-4ff98074783b)
+
+verificamos con la herramienta nslookup
+
+![image](https://github.com/user-attachments/assets/3ed16a07-00fc-41fa-a8df-dff4292cf46c)
+
+verificamos 
+
+![Captura de pantalla 2025-03-13 164756](https://github.com/user-attachments/assets/e353d61f-420f-4b0e-a643-9cac159854fd)
+
+se descargar certbot para garantizar conexiones seguras 
+
+![image](https://github.com/user-attachments/assets/b09d83d9-70f9-4bbc-ac35-3b0f6fa8ef3a)
+
+se crea un virtual host para servir el fronten en la ruta asignada 
+
+![image](https://github.com/user-attachments/assets/4e270091-ff5a-4f71-b014-c0fc0e8d9a07)
+
+obtenemos el certificado
+
+![image](https://github.com/user-attachments/assets/e0dd89fd-bbf5-4d5c-aaee-1d736f6b2a33)
+
+verificamos en el navegador 
+
+![image](https://github.com/user-attachments/assets/10c9d5ab-a3d6-4cb3-b760-8e5d9786ee90)
+
+![image](https://github.com/user-attachments/assets/95d2fa6a-b727-41a1-abf8-fbb13a68df2b)
+
+
+
+se sube el archivo .jar de la aplicación al backend y se corre
+
+![Captura de pantalla 2025-03-13 203203](https://github.com/user-attachments/assets/ffa32331-a97e-4226-a16c-750a4ffce4a9)
+
+se crean los usuarios con privilegios en la base de datos 
+
+![image](https://github.com/user-attachments/assets/b5fe3e99-07a3-42ff-8bac-01f187e9bbdf)
+
+Nota: Tuve problemas con el despliegue y las conexiones entre base de datos y backend
+No se proporciona video. Gracias 
 
 ### Construido con
 
