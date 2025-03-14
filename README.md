@@ -1,7 +1,7 @@
 # Escuela Colombiana de Ingeniería
 # Arquitecturas Empresariales
 
-## Taller 6 Seguridad 2
+## Taller 6 Seguridad 
 
 ## Descripción del laboratorio
 En este laboratorio vamos a garantizar unos criterios de seguridad para porteger la aplicación que elaboramos y desplegamos anteriormene
