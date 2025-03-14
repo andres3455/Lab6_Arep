@@ -4,7 +4,7 @@
 ## Taller 6 Seguridad 
 
 ## Descripción del laboratorio
-En este laboratorio vamos a garantizar unos criterios de seguridad para porteger la aplicación que elaboramos y desplegamos anteriormene
+En este laboratorio vamos a garantizar unos criterios de seguridad para porteger la aplicación que elaboramos y desplegamos en el laboratorio anterior
 
 ---
 ### Prerrequisitos 🧰
